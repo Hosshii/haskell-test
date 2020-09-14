@@ -66,4 +66,14 @@ max' a b
   | a <= b = b
   | otherwise = a
 
--- bmiTell' :: Double -> Double -> Double
+bmiTell' :: Double -> Double -> String
+bmiTell' weight height
+  | bmi <= skinny = "yase"
+  | bmi <= normal = "hutuu"
+  | bmi <= fat = "himan"
+  | otherwise = "kuzira"
+  where
+    bmi = weight / height ^ 2
+    skinny = 18.5
+    normal = 25.0
+    fat = 38.0
