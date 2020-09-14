@@ -4,7 +4,7 @@ cabal-version: 1.12
 --
 -- see: https://github.com/sol/hpack
 --
--- hash: a43f37817a1c33a5d813cfd4663fba027ff6e9c2e011da83f9cda9c7f3b237fb
+-- hash: 93560a8bb9e49b7e3cbdc5f8998e1dfd0bff35e3e6c305dc05b6fac2d1f04464
 
 name:           haskell-test
 version:        0.1.0.0
@@ -27,6 +27,7 @@ source-repository head
 
 library
   exposed-modules:
+      Baby
       Lib
   other-modules:
       Paths_haskell_test
