@@ -1,14 +1,13 @@
 {
-	"name": "haskell",
-	"dockerFile": "Dockerfile",
+  "name": "haskell",
+  "dockerFile": "Dockerfile",
 
-	"settings": {
-		"terminal.integrated.shell.linux": "/bin/bash"
-	},
+  "settings": {
+    "terminal.integrated.shell.linux": "/bin/bash"
+  },
 
-	"extensions": [
-		"haskell.haskell",
-		"justusadam.language-haskell",
-		"hoovercj.haskell-linter"
-	]
+  "extensions": [
+    "haskell.haskell",
+    "justusadam.language-haskell",
+  ]
 }
