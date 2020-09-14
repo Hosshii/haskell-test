@@ -1,1 +1,1 @@
-FROM haskell:8.10.2
+FROM haskell:8.8.4
