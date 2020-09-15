@@ -93,3 +93,35 @@ calcBmis :: [(Double, Double)] -> [Double]
 --   where
 --     bmi w h = w / h ^ 2
 calcBmis xs = [bmi | (w, h) <- xs, let bmi = w / h ^ 2, bmi <= 18.5]
+
+describeList :: [a] -> String
+describeList ls =
+  "The list is "
+    ++ case ls of
+      [] -> "empty."
+      [x] -> "a singleton list"
+      xs -> "a longer list."
+
+maximum' :: (Ord a) => [a] -> a
+maximum' [] = error "error"
+maximum' [x] = x
+maximum' (x : xs) = max x (maximum' xs)
+
+replicate' :: Int -> a -> [a]
+replicate' n x
+  | n <= 0 = []
+  | otherwise = x : replicate' (n -1) x
+
+take' :: Int -> [x] -> [x]
+take' n _
+  | n <= 0 = []
+take' _ [] = []
+take' n (x : xs) = x : (take' (n -1) xs)
+
+repeat' :: a -> [a]
+repeat' x = x : repeat' x
+
+zip' :: [a] -> [b] -> [(a, b)]
+zip' _ [] = []
+zip' [] _ = []
+zip' (a : as) (b : bs) = (a, b) : zip' as bs
