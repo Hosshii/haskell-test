@@ -1,5 +1,7 @@
 module Baby
   ( doubleMe,
+    initials',
+    calcBmis,
   )
 where
 
@@ -66,10 +68,16 @@ max' a b
   | a <= b = b
   | otherwise = a
 
+initials' :: String -> String -> String
+initials' firstname lastname = [f] ++ ". " ++ [l] ++ "."
+  where
+    (f : _) = firstname
+    (l : _) = lastname
+
 bmiTell' :: Double -> Double -> String
 bmiTell' weight height
   | bmi <= skinny = "yase"
-  | bmi <= normal = "hutuu"
+  | bmi <= normal = "hutuujjjjjjjjjjj"
   | bmi <= fat = "himan"
   | otherwise = "kuzira"
   where
@@ -77,3 +85,11 @@ bmiTell' weight height
     skinny = 18.5
     normal = 25.0
     fat = 38.0
+
+bmiAge a b = a + b
+
+calcBmis :: [(Double, Double)] -> [Double]
+-- calcBmis xs = [bmi w h | (w, h) <- xs]
+--   where
+--     bmi w h = w / h ^ 2
+calcBmis xs = [bmi | (w, h) <- xs, let bmi = w / h ^ 2, bmi <= 18.5]
