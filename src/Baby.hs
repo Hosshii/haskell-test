@@ -133,6 +133,13 @@ quicksort (x : xs) =
       big = [a | a <- xs, a > x]
    in quicksort small ++ [x] ++ big
 
+quicksort2 :: (Ord a) => [a] -> [a]
+quicksort2 [] = []
+quicksort2 (x : xs) =
+  let small = filter (<= x) xs
+      larger = filter (> x) xs
+   in quicksort2 small ++ [x] ++ quicksort2 larger
+
 fib :: Int -> Int
 fib x
   | x == 0 = 0
@@ -149,3 +156,41 @@ zipWith' :: (a -> b -> c) -> [a] -> [b] -> [c]
 zipWith' _ [] _ = []
 zipWith' _ _ [] = []
 zipWith' f (x : xs) (y : ys) = f x y : zipWith' f xs ys
+
+chain :: Integer -> [Integer]
+chain 1 = [1]
+chain x
+  | even x = x : chain (x `div` 2)
+  | odd x = x : chain (x * 3 + 1)
+
+numLongChains :: Int
+numLongChains = length (filter isLong (map chain [1 .. 100]))
+  where
+    isLong xs = length xs > 15
+
+numLongChains' :: Int
+numLongChains' = length (filter (\xs -> length xs > 15) (map chain [1 .. 100]))
+
+sum' :: (Num a) => [a] -> a
+sum' xs = foldl (\acc x -> acc + x) 0 xs
+
+map' :: (a -> b) -> [a] -> [b]
+map' f xs = foldr (\x acc -> f x : acc) [] xs
+
+elem' :: (Eq a) => a -> [a] -> Bool
+elem' y xs = foldr (\x acc -> if x == y then True else acc) False xs
+
+reverse' :: [a] -> [a]
+reverse' = foldl (\acc x -> x : acc) []
+
+filter' :: (a -> Bool) -> [a] -> [a]
+filter' p = foldr (\x acc -> if p x then x : acc else acc) []
+
+and' :: [Bool] -> Bool
+and' xs = foldr (&&) True xs
+
+sqrtSums :: Int
+sqrtSums = length (takeWhile (< 1000) (scanl1 (+) (map sqrt [1 ..]))) + 1
+
+oddSquareSum :: Integer
+oddSquareSum = sum . takeWhile (< 10000) . filter odd $ map (^ 2) [1 ..]
