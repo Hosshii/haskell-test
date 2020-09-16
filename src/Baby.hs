@@ -125,3 +125,14 @@ zip' :: [a] -> [b] -> [(a, b)]
 zip' _ [] = []
 zip' [] _ = []
 zip' (a : as) (b : bs) = (a, b) : zip' as bs
+quicksort :: (Ord a) => [a] -> [a]
+quicksort [] = []
+quicksort (x : xs) =
+  let small = [a | a <- xs, a <= x]
+      big = [a | a <- xs, a > x]
+   in quicksort small ++ [x] ++ big
+fib :: Int -> Int
+fib x
+  | x == 0 = 0
+  | x == 1 = 1
+  | otherwise = fib (x -1) + fib (x -2)
