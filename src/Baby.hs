@@ -125,14 +125,27 @@ zip' :: [a] -> [b] -> [(a, b)]
 zip' _ [] = []
 zip' [] _ = []
 zip' (a : as) (b : bs) = (a, b) : zip' as bs
+
 quicksort :: (Ord a) => [a] -> [a]
 quicksort [] = []
 quicksort (x : xs) =
   let small = [a | a <- xs, a <= x]
       big = [a | a <- xs, a > x]
    in quicksort small ++ [x] ++ big
+
 fib :: Int -> Int
 fib x
   | x == 0 = 0
   | x == 1 = 1
   | otherwise = fib (x -1) + fib (x -2)
+
+comHundred :: Int -> Ordering
+comHundred x = compare 100 x
+
+applyTwice :: (a -> a) -> a -> a
+applyTwice f x = f (f x)
+
+zipWith' :: (a -> b -> c) -> [a] -> [b] -> [c]
+zipWith' _ [] _ = []
+zipWith' _ _ [] = []
+zipWith' f (x : xs) (y : ys) = f x y : zipWith' f xs ys
