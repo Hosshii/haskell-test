@@ -5,6 +5,7 @@ module Baby
   )
 where
 
+import Data.List
 doubleMe x = x * 2
 
 doubleUs x y = x * 2 + y * 2
@@ -194,3 +195,9 @@ sqrtSums = length (takeWhile (< 1000) (scanl1 (+) (map sqrt [1 ..]))) + 1
 
 oddSquareSum :: Integer
 oddSquareSum = sum . takeWhile (< 10000) . filter odd $ map (^ 2) [1 ..]
+numUniques :: (Eq a) => [a] -> Int
+numUniques = length . nub
+
+countWord :: String -> [(String, Int)]
+countWord s = map (\ws -> (head ws, length ws)) . group . sort $ words s
+
