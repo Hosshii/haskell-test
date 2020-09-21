@@ -4,7 +4,7 @@ cabal-version: 1.12
 --
 -- see: https://github.com/sol/hpack
 --
--- hash: 99cd363e174b999e4f493c3c8f84ef9d03988ef4b74be69648cd7988d286449e
+-- hash: e9a9d4987533f991d82e34fa6b58cca2748508414cffbd33a5ec5f5bb44acf8c
 
 name:           haskell-test
 version:        0.1.0.0
@@ -38,6 +38,7 @@ library
       Tree
       Type
       TypeClass
+      Yesno
   other-modules:
       Paths_haskell_test
   hs-source-dirs:
