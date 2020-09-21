@@ -22,3 +22,7 @@ treeElem x (Node a left right)
 nums = [8, 6, 4, 1, 7, 3, 5]
 
 numsTree = foldr treeInsert EmptyTree nums
+
+instance Functor Tree where
+  fmap f EmptyTree = EmptyTree
+  fmap f (Node x left right) = Node (f x) (fmap f left) (fmap f right)
