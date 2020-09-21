@@ -4,7 +4,7 @@ cabal-version: 1.12
 --
 -- see: https://github.com/sol/hpack
 --
--- hash: 6bae3e0d2a14797fac4fe1379fbf4aabd9eabb05f5df2725c7dbebbac866a253
+-- hash: 99cd363e174b999e4f493c3c8f84ef9d03988ef4b74be69648cd7988d286449e
 
 name:           haskell-test
 version:        0.1.0.0
@@ -28,12 +28,16 @@ source-repository head
 library
   exposed-modules:
       Baby
-      Geometry
       Geometry.Cube
       Geometry.Cuboid
       Geometry.Sphere
       Lib
+      List
+      Locker
       Optional
+      Tree
+      Type
+      TypeClass
   other-modules:
       Paths_haskell_test
   hs-source-dirs:
