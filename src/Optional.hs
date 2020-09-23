@@ -1,3 +1,5 @@
+module Optional where
+
 import Data.Char
 
 -- findKey :: (Eq k) => k -> [(k, v)] -> v

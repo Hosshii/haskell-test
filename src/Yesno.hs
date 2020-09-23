@@ -1,3 +1,5 @@
+module Yesno where
+
 import Tree
 import TypeClass as TrafficLight
 
