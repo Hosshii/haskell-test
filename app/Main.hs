@@ -1,6 +1,10 @@
 module Main where
 
+import IoTest
 import Lib
 
 main :: IO ()
-main = someFunc
+main = do
+  ioTestFunc
+  reverseWord
+  whenTest
